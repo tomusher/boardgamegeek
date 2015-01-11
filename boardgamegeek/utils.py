@@ -41,7 +41,7 @@ class DictObject(object):
 
     def __getattr__(self, item):
         # allow accessing user's variables using .attribute
-        if item in self._data:
+        if item != "_data" and item in self._data:
             return self._data[item]
         raise AttributeError
 
